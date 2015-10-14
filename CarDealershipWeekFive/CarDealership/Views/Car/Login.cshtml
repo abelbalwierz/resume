@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<script>
+    $(function () {
+        $('#theForm').submit(function () {
+            if ($('#username').val().indexOf("'") > -1) {
+                return false;
+            }
+            return true;
+        });
+    });
+</script>
+<body style="background-color:lightgrey">
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("LoginUser", "Car", FormMethod.Post, new { id = "theForm" }))
+    {
+        <div>Username: <input type="text" name="username" id="username" /></div>
+        <div>Password: <input type="password" name="password" id="password" /></div>
+        <div><input type="submit" value="Login" /></div>
+    }
+    </body>

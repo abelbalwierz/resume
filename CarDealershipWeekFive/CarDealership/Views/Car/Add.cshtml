@@ -1,0 +1,60 @@
+﻿@model CarDealership.Models.Car
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<script>
+    $(function () {
+        $('#datething').datepicker();
+        $('#accord').accordion();
+    });
+</script>
+<body style="background-color:lightgrey">
+    <h2>Add</h2>
+    <h3>@ViewBag.Message</h3>
+
+    @using (Html.BeginForm("Add", "Car", FormMethod.Post))
+    {
+        <div>
+            @Html.ValidationSummary(true)
+        </div>
+        <div class="form-group">
+            <label>Make</label><br />
+            @Html.TextBoxFor(x => x.Make, new { placeholder = "who makes this car?" })
+            @Html.ValidationMessageFor(m => m.Make)
+        </div>
+        <div class="form-group">
+            <label>Model</label><br />
+            @Html.TextBoxFor(x => x.Model, new { placeholder = "something cool" })
+            @Html.ValidationMessageFor(m => m.Model)
+        </div>
+        <div class="form-group">
+            <label>Year</label><br />
+            @Html.TextBoxFor(x => x.Year, new { placeholder = "when?" })
+            @Html.ValidationMessageFor(m => m.Year)
+        </div>
+        <div class="form-group">
+            <label>Image</label><br />
+            @Html.TextBoxFor(x => x.ImageUrl, new { placeholder = "picture" })
+        </div>
+        <div class="form-group">
+            <label>Title</label><br />
+            @Html.TextBoxFor(x => x.Title, new { placeholder = "title" })
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
+        <div class="form-group">
+            <label>Description</label><br />
+            @Html.TextBoxFor(x => x.Description, new { placeholder = "what's the car like" })
+            @Html.ValidationMessageFor(m => m.Description)
+        </div>
+        <div class="form-group">
+            <label>Price</label><br />
+            @Html.TextBoxFor(x => x.Price, new { placeholder = "How much?" })
+            @Html.ValidationMessageFor(m => m.Price)
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    }
+</body> 
